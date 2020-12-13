@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TreeCoordinates {
     @NonNull
     @JsonProperty("tree_id")
-    private String treeId;
+    private Double treeId;
     @NonNull
     @JsonProperty("spc_common")
     private String treeName;
@@ -20,7 +20,7 @@ public class TreeCoordinates {
 		super();
 	}
     
-	public TreeCoordinates(String treeId, String treeName, Double x, Double y) {
+	public TreeCoordinates(Double treeId, String treeName, Double x, Double y) {
 		super();
 		this.treeId = treeId;
 		this.treeName = treeName;
@@ -28,10 +28,10 @@ public class TreeCoordinates {
 		this.y = y;
 	}
 	
-	public String getTreeId() {
+	public Double getTreeId() {
 		return treeId;
 	}
-	public void setTreeId(String treeId) {
+	public void setTreeId(Double treeId) {
 		this.treeId = treeId;
 	}
 	public String getTreeName() {

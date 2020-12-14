@@ -10,9 +10,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Configuration
 @EnableScheduling
 public class CacheEvictScheduler {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CacheEvictScheduler.class);
-	
+
 	@CacheEvict(allEntries = true, value = "treesCache")
 	@Scheduled(cron = "0 55 8 * * *")
 	public void scheduledJob() {

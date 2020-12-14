@@ -15,36 +15,34 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 @Configuration
 @EnableScheduling
 public class TreeDataInitScheduler implements CommandLineRunner {
-	
-	private static final Logger logger = LoggerFactory.getLogger(TreeDataInitScheduler.class);
-	
-	private RestTemplate restTemplate;
-	
-	private ObjectNode[] apiResponseData;
-	
-    @Value("${api.cityofnewyork.url}")
-    private String apiEndpoint;
 
-	
+	private static final Logger logger = LoggerFactory.getLogger(TreeDataInitScheduler.class);
+
+	private RestTemplate restTemplate;
+
+	private ObjectNode[] apiResponseData;
+
+	@Value("${api.cityofnewyork.url}")
+	private String apiEndpoint;
+
 	@Autowired
 	public TreeDataInitScheduler(RestTemplate restTemplate) {
 		super();
 		this.restTemplate = restTemplate;
 	}
-	
-	
+
 	public ObjectNode[] getApiResponseData() {
 		return apiResponseData;
 	}
 
-
 	/**
 	 * Fetch data from rest endpoint
+	 * 
 	 * @return
 	 */
 	private ObjectNode[] treeData() {
 		apiResponseData = restTemplate.getForObject(apiEndpoint, ObjectNode[].class);
-		logger.debug("Api response data size: "+ apiResponseData.length);
+		logger.debug("Api response data size: " + apiResponseData.length);
 		return apiResponseData;
 	}
 
@@ -53,7 +51,7 @@ public class TreeDataInitScheduler implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		scheduledJob();
 	}
-	
+
 	@Scheduled(cron = "0 0 9 * * *")
 	public void scheduledJob() throws Exception {
 		treeData();

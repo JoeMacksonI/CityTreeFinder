@@ -1,9 +1,11 @@
 package com.holidu.interview.assignment.config;
 
 import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -23,7 +25,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo generateApiInfo() {
-		return new ApiInfo("Tree Service", "", "Version 1.0 ", "urn:tos", new Contact("Holidu", "", ""),
-				"Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", Collections.emptyList());
+		return new ApiInfo("Tree Service", "", "Version 1.0 ", "urn:tos", new Contact("Holidu", "", ""), "Apache 2.0",
+				"http://www.apache.org/licenses/LICENSE-2.0", Collections.emptyList());
 	}
 }

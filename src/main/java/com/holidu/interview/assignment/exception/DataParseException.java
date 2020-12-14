@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * Represent parsing exceptions that can happen with the received
+ * Error in parsing api data
  * json response from 3rd party data providers
  */
 
